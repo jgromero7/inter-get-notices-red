@@ -48,8 +48,6 @@ def main():
 
         send_parameters = dict()
         for index, value in enumerate(nationalities):
-            if index == 1:
-                break
             send_parameters['arrestWarrantCountryId'] = value['key']
             aux_url_api = url_parameters.url_parameters_convert(url_api, send_parameters)
 
@@ -79,7 +77,6 @@ def main():
                         data_red = json.loads(response_notices_red.content)
                         if '_embedded' in data_red:
                             aux_embedded = data_red['_embedded']
-                            #print(data_red)
                             if 'notices' in aux_embedded:
                                 aux_notices = aux_embedded['notices']
                                 for notice in aux_notices:
